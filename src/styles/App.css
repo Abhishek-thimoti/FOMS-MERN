@@ -1,0 +1,459 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* Auth / Login */
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #b41212 0%, #fecfef 99%, #fecfef 100%);
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-card h1 {
+  margin-bottom: 10px;
+  color: #ff6b6b;
+}
+
+/* Login Logo & Captions */
+.login-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.login-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-color: #ff6b6b;
+}
+
+.login-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-caption {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.admin-caption { color: #43e97b; }
+.customer-caption { color: #4facfe; }
+
+.customer-btn, .admin-btn {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.customer-btn { background-color: #4facfe; }
+.admin-btn { background-color: #43e97b; }
+.customer-btn:hover, .admin-btn:hover { transform: scale(1.05); }
+
+/* Menu Page */
+.menu-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.menu-header h1 {
+  color: #ff6b6b;
+}
+
+.search-bar {
+  padding: 10px 20px;
+  width: 300px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.dishes-grid {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-auto-rows: max-content; /* This ensures the card shows all its text */
+  gap: 20px;
+  align-content: start;
+}
+
+.dish-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dish-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-container {
+  position: relative;
+  height: 180px;
+  flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nutrition-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.image-container:hover .nutrition-overlay {
+  opacity: 1;
+}
+
+.dish-info {
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Takes up remaining space */
+}
+
+.dish-info h3 { margin-bottom: 10px; color: #333; }
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.badge.veg { background: #e6f4ea; color: #1e8e3e; }
+.badge.non-veg { background: #fce8e6; color: #d93025; }
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4facfe;
+  margin-bottom: 15px;
+  margin-top: auto; /* Pushes the price and button to the bottom */
+}
+
+.add-btn {
+  width: 100%;
+  padding: 10px;
+  background: #ffb86c;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.add-btn:hover { background: #ff9a9e; }
+
+/* Cart Sidebar */
+.cart-sidebar {
+  width: 320px;
+  background: white;
+  border-left: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.cart-sidebar h2 { margin-bottom: 20px; color: #333; }
+
+.empty-cart { color: #888; text-align: center; margin-top: 50px; }
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-info h4 { font-size: 14px; margin-bottom: 5px; }
+.cart-item-info p { font-size: 13px; color: #666; }
+
+.cart-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-actions button {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cart-actions .remove-btn { background: #ff6b6b; color: white; border: none; }
+
+.cart-footer {
+  margin-top: 20px;
+  border-top: 2px solid #eee;
+  padding-top: 20px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background: #43e97b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.checkout-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+/* Payment Page */
+.payment-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f8;
+}
+
+.payment-card, .success-message {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.order-list {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 5px;
+}
+
+.total-amount { margin: 20px 0; font-size: 22px; color: #333; }
+
+.payment-actions { display: flex; gap: 10px; }
+
+.back-btn, .confirm-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+.back-btn { background: #aaa; }
+.confirm-btn { background: #4facfe; }
+
+/* Admin Dashboard */
+.admin-page { padding: 20px; }
+.admin-header {
+  display: flex; justify-content: space-between; align-items: center;
+  background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;
+}
+.admin-content { display: flex; gap: 30px; }
+
+.admin-form {
+  background: white; padding: 20px; border-radius: 10px; width: 300px;
+  display: flex; flex-direction: column; gap: 15px; height: max-content;
+}
+.admin-form input, .admin-form select {
+  padding: 10px; border: 1px solid #ddd; border-radius: 6px;
+}
+.save-btn { background: #43e97b; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer; }
+.cancel-btn { background: #aaa; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer; }
+
+.admin-dishes {
+  flex: 1; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;
+}
+
+.admin-dish-card {
+  background: white; padding: 15px; border-radius: 10px; text-align: center;
+}
+.admin-dish-card img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; }
+.admin-dish-actions { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+.edit-btn { background: #ffb86c; border: none; padding: 5px 10px; border-radius: 4px; color: white; cursor: pointer; }
+.delete-btn { background: #ff6b6b; border: none; padding: 5px 10px; border-radius: 4px; color: white; cursor: pointer; }
+.cart-footer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.clear-cart-btn {
+  width: 100%;
+  padding: 10px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.clear-cart-btn:disabled { 
+  background: #ccc; 
+  cursor: not-allowed; 
+}
+
+.checkout-btn {
+  margin-top: 0; /* Override the previous margin-top */
+}
+/* Authentication Form Styles */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.auth-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.auth-form input:focus {
+  border-color: #4facfe;
+}
+
+.error-text {
+  color: #d93025;
+  font-size: 13px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.toggle-auth {
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  margin-top: 15px;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.toggle-auth:hover {
+  color: #4facfe;
+}
+/* Password Input Container */
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 40px; 
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
