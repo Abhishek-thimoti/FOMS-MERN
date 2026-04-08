@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Selectors</title>
+</head>
+
+<body>
+
+    <h2 id="title"></h2>
+    <p id="output"></p>
+
+    <script>
+        // Heading
+        document.getElementById("title").innerHTML = "Welcome to JavaScript";
+
+        // Alert box
+        window.alert("Welcome to JavaScript Objects");
+
+        /* Math Functions */
+        let number = 16.1;
+        let sqrtValue = Math.sqrt(number);
+        let roundValue = Math.round(number);
+        let floorValue = Math.floor(number);
+        let ceilValue = Math.ceil(number);
+
+        /* String Functions */
+        let text = "javascript";
+        let upperText = text.toUpperCase();
+        let lowerText = text.toLowerCase();
+        let textLength = text.length;
+
+        // Display output
+        document.getElementById("output").innerHTML =
+            "Number: " + number + "<br>" +
+            "Square Root: " + sqrtValue + "<br>" +
+            "Rounded Value: " + roundValue + "<br>" +
+            "Floor Value: " + floorValue + "<br><br>" +
+
+            "Original Text: " + text + "<br>" +
+            "Uppercase Text: " + upperText + "<br>" +
+            "Lowercase Text: " + lowerText + "<br>" +
+            "Text Length: " + textLength;
+    </script>
+
+</body>
+</html>

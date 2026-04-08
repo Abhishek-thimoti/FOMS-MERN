@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    /* Simple Selectors */
+    * { font-family: Arial; } /* Universal */
+    p { color: blue; } /* Element */
+    #myId { font-weight: bold; } /* ID */
+    .myClass { font-style: italic; } /* Class */
+    h1, h2 { text-decoration: underline; } /* Group */
+
+    /* Combinator Selectors */
+    div p { color: red; } /* Descendant */
+    div > span { color: green; } /* Child */
+    h1 + p { color: orange; } /* Adjacent Sibling */
+    h1 ~ p { color: purple; } /* General Sibling */
+</style>
+</head>
+<body>
+    <h1 id="myId">Heading</h1>
+    <p class="myClass">Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <div><p>Descendant</p><span>Child</span></div>
+</body>
+</html>

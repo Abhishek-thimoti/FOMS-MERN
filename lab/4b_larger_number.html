@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let a = parseInt(prompt("Enter first integer:"));
+        let b = parseInt(prompt("Enter second integer:"));
+        let c = parseInt(prompt("Enter third integer:"));
+
+        if (a === b && b === c) {
+            document.write("EQUAL NUMBERS");
+        } else {
+            let max = Math.max(a, b, c);
+            document.write(max + " LARGER NUMBER");
+        }
+    </script>
+</body>
+</html>
